@@ -1,0 +1,14 @@
+.nav{
+    height: 80px;
+    width: 100vw;
+    background-color: #98737B;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav img{
+    height: 75px;
+}
+.menu a{
+    padding:20px
+}

@@ -1,17 +1,16 @@
 // import styles from "./Projects.module.css";
-import Drifts from '../Drifts/Drifts';
-
-import { Card } from 'antd';
+import Drifts from '../ProjectCard/ProjectCard';
 
 
 function Developer() {
 
 
   return (
-    <div >
-     <Drifts />
-    </div>
-  )
-}
-
+    <div>
+   
+        <Drifts />
+   
+  </div>
+  );
+  }
 export default Developer;

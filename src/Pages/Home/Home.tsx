@@ -1,5 +1,5 @@
-import Welcome from '../../Components/Welcome/Welcome'
-import AboutMe from '../../Components/AboutMe/AboutMe'
+import Welcome from '../../components/welcome/welcome'
+import AboutMe from '../../components/about-me/about-me'
 
 function Home() {
   return (

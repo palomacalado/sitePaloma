@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import logo from "../../Assets/Images/P A L O M A.png";
+import logo from "../../assets/images/P A L O M A.png";
 
 const NavStyle = styled.div`
   height: 80px;

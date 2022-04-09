@@ -1,5 +1,5 @@
 // import styles from "./Projects.module.css";
-import Drifts from '../ProjectCard/ProjectCard';
+import Drifts from '../project-card/project-card';
 
 
 function Developer() {

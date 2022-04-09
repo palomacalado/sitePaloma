@@ -1,5 +1,5 @@
 import React from 'react'
-import Developer from '../../Components/Developer/Developer'
+import Developer from '../../components/developer/developer'
 
 function Projects() {
   return (

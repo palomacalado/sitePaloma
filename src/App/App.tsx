@@ -1,7 +1,7 @@
-import Nav from "../Components/Nav/Nav";
-import Ways from "../Ways";
+import Nav from "../components/nav/nav";
+import Ways from "../ways";
 import { BrowserRouter } from "react-router-dom";
-import Contact from "../Components/Contact/Contact";
+import Contact from "../components/contact/contact";
 import styled from "styled-components";
 
 const GlobalStyle = styled.nav`

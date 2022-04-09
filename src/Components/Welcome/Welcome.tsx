@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./Welcome.module.css"
-import foto from "../../Assets/Images/imagemprincipal.png";
+import styles from "./welcome.module.css"
+import foto from "../../assets/images/imagemprincipal.png";
 
 function Welcome() {
   return (

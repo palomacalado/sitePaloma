@@ -1,50 +1,50 @@
 {
-    "developer": [
-      {
-        "id": 1,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      },
-      {
-        "id": 2,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      },
-      {
-        "id": 3,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      },
-      {
-        "id": 4,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      },
-      {
-        "id": 5,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      },
-      {
-        "id": 6,
-        "image": "Hambúrguer",
-        "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "description":" 8.5"
-      }
-    ],
-    "categorias": [
-      {
-        "id": 1,
-        "nome": "Hambúrgueres"
-      },
-      {
-        "id": 2,
-        "nome": "Refrigerantes"
-      }
-    ]
-  }
+  "developer": [
+    {
+      "id": 1,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    },
+    {
+      "id": 2,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    },
+    {
+      "id": 3,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    },
+    {
+      "id": 4,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    },
+    {
+      "id": 5,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    },
+    {
+      "id": 6,
+      "image": "Hambúrguer",
+      "preview": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "description": " 8.5"
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Hambúrgueres"
+    },
+    {
+      "id": 2,
+      "nome": "Refrigerantes"
+    }
+  ]
+}

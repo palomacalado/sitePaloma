@@ -9,12 +9,10 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import fotoDrifts from "../../assets/images/Drift.png"
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -31,7 +29,12 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function ProjectCard() {
+export default function ProjectCard({
+  title,
+  image,
+  description,
+  preview,
+}: Card) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -42,8 +45,8 @@ export default function ProjectCard() {
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            J
+          <Avatar sx={{ bgcolor: "#063640" }} aria-label="recipe">
+            {title[0]}
           </Avatar>
         }
         action={
@@ -51,18 +54,17 @@ export default function ProjectCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Jogo Drifts"
-        subheader="2014"
+        title={title}
       />
       <CardMedia
         component="img"
         height="194"
-        image={fotoDrifts}
+        image={image}
         alt="Foto ilustrativa do projeto"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-        Esta versão Drifts foi desenvolvida por mim, enquanto aluna de Ciência da Computação da Universidade Federal do Rio de Janeiro, como projeto final da disciplina Computação II - Java em 2014.2
+          {preview}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -83,11 +85,7 @@ export default function ProjectCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Drifts:</Typography>
-          <Typography paragraph>
-          Este jogo tem como objetivo acumular o máximo de bolhas vedes na bolha vermelha que é comandada pelo usuário, dentro do tempo estipulado de dois minutos, evitando assim tocar as bolhas roxas que ocasionam o estouro destas e término do jogo. A quantidade mínima de bolhas verdes para serem convertidas em pontos é 3. Para convertê- las basta tocar o grupo de bolas que está sob seu comando na bola azul, que automaticamente as converterá em pontos
-          </Typography>
-         
+          <Typography paragraph>{description} </Typography>
         </CardContent>
       </Collapse>
     </Card>

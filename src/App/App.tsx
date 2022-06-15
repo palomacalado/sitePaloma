@@ -3,6 +3,7 @@ import Ways from "../ways";
 import { BrowserRouter } from "react-router-dom";
 import Contact from "../components/contact/contact";
 import styled from "styled-components";
+import Login from "../pages/login/login";
 
 const GlobalStyle = styled.nav`
   background-color: #f0e7e2;
@@ -19,7 +20,7 @@ function App() {
       <GlobalStyle>
         <Contact />
         <Nav />
-        <Ways />
+        <Ways/>
       </GlobalStyle>
     </BrowserRouter>
   );

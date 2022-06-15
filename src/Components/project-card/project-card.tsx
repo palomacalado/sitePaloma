@@ -29,6 +29,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
+
 export default function ProjectCard({
   title,
   image,
@@ -42,7 +43,7 @@ export default function ProjectCard({
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width:345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "#063640" }} aria-label="recipe">
@@ -58,7 +59,7 @@ export default function ProjectCard({
       />
       <CardMedia
         component="img"
-        height="194"
+        height="140"
         image={image}
         alt="Foto ilustrativa do projeto"
       />

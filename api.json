@@ -1,84 +1,21 @@
 {
   "developer": [
     {
-      "title": "dfgvdfg",
+      "title": "Drifts",
       "image": "projectImage",
-      "preview": "dgbgbfdg",
-      "description": "dgbdfbdgbg",
-      "id": 1
-    },
-    {
-      "title": "dfgvdfg",
-      "image": "projectImage",
-      "preview": "dgbgbfdg",
-      "description": "dgbdfbdgbg",
-      "id": 2
-    },
-    {
-      "title": "dfgvdfg",
-      "image": "projectImage",
-      "preview": "dgbgbfdg",
-      "description": "dgbdfbdgbg",
-      "id": 3
-    },
-    {
-      "title": "",
-      "image": "projectImage",
-      "preview": "",
-      "description": "",
-      "id": 4
-    },
-    {
-      "title": "teste",
-      "image": "projectImage",
-      "preview": "preview",
-      "description": "descrição de leve\n",
-      "id": 5
-    },
-    {
-      "title": "teste",
-      "image": "projectImage",
-      "preview": "preview",
-      "description": "descrição de leve\n",
-      "id": 6
-    },
-    {
-      "title": "teste 3",
-      "image": "projectImage",
-      "preview": "kdjfb nolsjb no",
-      "description": "k chnsolk vidfp]b vkinfcp]vk \nfdfbhgf ",
-      "id": 7
-    },
-    {
-      "title": "teste 10000",
-      "image": "projectImage",
-      "preview": "dpfvkib nspvgikb hnspfki vbnpsvçfk ",
-      "description": "svg olkfoskijb hnpginb phokivgf",
-      "id": 8
-    },
-    {
-      "title": "sdz vgfs",
-      "image": "projectImage",
-      "preview": "b dgfvfsvg",
-      "description": "sfvgsfrdfs",
-      "id": 9
-    },
-    {
-      "title": "vai atualizar direto?",
-      "image": "projectImage",
-      "preview": "fikvmmmmmmpr0estfibhnptgikdpivfkp-sfckb vmndpfkbv pgfb vdmnptgf0kibhdgpçfbvgkimpçerfivgmkdçfp",
-      "description": "height: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\nheight: fill-content;\n",
-      "id": 10
+      "preview": "Esta versão Drifts foi desenvolvida por Paloma Calado, aluna de Ciência da Computação da Universidade Federal do Rio de Janeiro, como projeto final da disciplina Computação II - Java em 2014.2",
+      "description": "Este jogo tem como objetivo acumular o máximo de bolhas vedes na bolha vermelha que é comandada pelo usuário, dentro do tempo estipulado de dois minutos, evitando assim tocar as bolhas roxas que ocasionam o estouro destas e término do jogo. A quantidade mínima de bolhas verdes para serem convertidas em pontos é 3. Para convertê- las basta tocar o grupo de bolas que está sob seu comando na bola azul, que automaticamente as converterá em pontos",
+      "id": 11
     }
   ],
-  "categorias": [
+  "users": [
     {
       "id": 1,
-      "nome": "Hambúrgueres"
+      "nome": ""
     },
     {
       "id": 2,
-      "nome": "Refrigerantes"
+      "nome": ""
     }
   ]
 }

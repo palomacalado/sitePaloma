@@ -16,6 +16,7 @@ import styled from 'styled-components';
 import clsx from 'clsx';
 import { AuthContext } from '../../contexts/auth';
 import { getUsers } from '../../services/api';
+import { Link } from 'react-router-dom';
 
 const LoginStyle = styled.div`
   min-height: 100vh;
@@ -138,7 +139,7 @@ function Login() {
           />
         </FormControl>
       <p>
-        Não é cadastrada? <a href='cadastro-comunidade'>Clica aqui </a>e
+        Não é cadastrada? <Link to='/cadastro-comunidade'>Clica aqui </Link>e
         cadatre-se
       </p>
         <Button

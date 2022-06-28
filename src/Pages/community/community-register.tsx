@@ -8,6 +8,7 @@ import {
   TextField,
   makeStyles,
   Theme,
+  Button,
 } from '@material-ui/core';
 import { AccountCircle, Visibility, VisibilityOff } from '@material-ui/icons';
 import React, { useContext, useEffect, useState } from 'react';
@@ -15,6 +16,9 @@ import styled from 'styled-components';
 import clsx from 'clsx';
 import { AuthContext } from '../../contexts/auth';
 import { getUsers } from '../../services/api';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import 'react-popup-alert/dist/index.css';
 
 const LoginStyle = styled.div`
   min-height: 100vh;
@@ -45,13 +49,16 @@ interface State {
   email: string;
   password: string;
   showPassword: boolean;
+  confirmPassword: string;
 }
 function CommunityRegister() {
   const classes = useStyles();
   const { login }: any = useContext(AuthContext);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<user[]>([]);
+  const [isNewUser, setIsNewUser] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [password
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -64,8 +71,46 @@ function CommunityRegister() {
   const [values, setValues] = useState({
     email: '',
     password: '',
+    confirmPassword: '',
     showPassword: false,
+    showConfirmPassword: false,
   });
+  function register(email: string, password: string) {
+    const body = {
+      email,
+      password,
+    };
+
+    users.forEach((user) => {
+      if (user.email === email) {
+        setIsNewUser(false);
+        alert(`Usuário ${email} já existe.`);
+        navigate('/login');
+      }
+    });
+    if (!isNewUser && values.password !== values.confirmPassword) {
+      alert('Senhas diferentes. Insira a mesma senha nos dois campos');
+    } else {
+      axios
+        .post('http://www.localhost:3004/users', body)
+
+        .then(() => {
+          setValues({
+            email: '',
+            password: '',
+            confirmPassword: '',
+            showPassword: false,
+            showConfirmPassword: false,
+          });
+        })
+        .catch(() => {
+          if (isNewUser === true) {
+            alert('Cadastro não concluído, tente novamente mais tarde!');
+            navigate('/login');
+          }
+        });
+    }
+  }
 
   const handleChange =
     (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,6 +119,9 @@ function CommunityRegister() {
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
+  };
+  const handleClickShowConfirmPassword = () => {
+    setValues({ ...values, showConfirmPassword: !values.showConfirmPassword });
   };
 
   const handleMouseDownPassword = (
@@ -137,16 +185,16 @@ function CommunityRegister() {
           Confirme a senha
         </InputLabel>
         <OutlinedInput
-          id='outlined-adornment-password'
-          type={values.showPassword ? 'text' : 'password'}
-          value={values.password}
+          id='outlined-adornment-confirm-password'
+          type={values.showConfirmPassword ? 'text' : 'password'}
+          value={values.confirmPassword}
           placeholder=' até 8 dígitos'
-          onChange={handleChange('password')}
+          onChange={handleChange('confirmPassword')}
           endAdornment={
             <InputAdornment position='end'>
               <IconButton
                 aria-label='toggle password visibility'
-                onClick={handleClickShowPassword}
+                onClick={handleClickShowConfirmPassword}
                 onMouseDown={handleMouseDownPassword}
                 edge='end'
               >
@@ -157,8 +205,17 @@ function CommunityRegister() {
           labelWidth={70}
         />
       </FormControl>
+
+      <Button
+        variant='contained'
+        size='large'
+        color='secondary'
+        className={classes.margin}
+        onClick={() => register(values.email, values.password)}
+      >
+        Cadastrar
+      </Button>
     </LoginStyle>
   );
 }
-
 export default CommunityRegister;

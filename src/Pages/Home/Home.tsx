@@ -1,5 +1,6 @@
-import Welcome from '../../components/welcome/welcome'
-import AboutMe from '../../components/about-me/about-me'
+import Welcome from "../../Components/Welcome/welcome"
+import AboutMe from "../../Components/about-me/about-me"
+
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
       </div>
       <div id='sobre mim'>
 
-      <AboutMe />
+      {/* <AboutMe /> */}
       </div>
 
     </div>

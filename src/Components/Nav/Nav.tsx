@@ -1,26 +1,7 @@
 import styled from 'styled-components';
 
-import logo from '../../assets/images/P A L O M A.png';
-
-const NavStyle = styled.div`
-  height: 80px;
-  width: 100vw;
-  background-color: #98737b;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-`;
-
-const Hiperlink = styled.a`
-  text-decoration: none;
-  cursor: pointer;
-  color: #f0e7e2;
-  margin: 5px;
-  padding: 20px;
-`;
-const Image = styled.img`
-  height: 75px;
-`;
+import logo from '../../Assets/images/P A L O M A.png';
+import { NavStyle, Image, Hiperlink } from './styles';
 
 function Nav() {
   const token = localStorage.getItem('token');

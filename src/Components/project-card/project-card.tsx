@@ -14,6 +14,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
+
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -29,25 +30,24 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-
-export default function ProjectCard({
-  title,
+function ProjectCard({ title,
   image,
   description,
-  preview,
+  preview
 }: Card) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false)
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    setExpanded(!expanded)
+  }
 
   return (
-    <Card sx={{ width:345 }}>
+    <Card sx={{ width: 245, margin:1 }}>
+    
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "#063640" }} aria-label="recipe">
-            {title[0]}
+          <Avatar sx={{ bgcolor: '#fe6e3a' }} aria-label="recipe">
+            {title[1]}
           </Avatar>
         }
         action={
@@ -55,17 +55,17 @@ export default function ProjectCard({
             <MoreVertIcon />
           </IconButton>
         }
-        title={title}
+        title={title.replaceAll(`"`,"")}
       />
       <CardMedia
         component="img"
-        height="140"
-        image={image}
+        height="300"
+        image= {image.replaceAll(`"`,"")}
         alt="Foto ilustrativa do projeto"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {preview}
+          {preview.replaceAll(`"`,"")}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -86,9 +86,10 @@ export default function ProjectCard({
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{description} </Typography>
+          <Typography paragraph>{description.replaceAll(`"`,"")} </Typography>
         </CardContent>
       </Collapse>
     </Card>
-  );
+  )
 }
+export default ProjectCard

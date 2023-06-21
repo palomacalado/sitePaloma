@@ -1,43 +1,45 @@
 import React from "react";
-import Developer from "../../components/developer/developer";
+import Developer from "../../Components/Developer/developer";
 import styled from "styled-components";
+import Grid from "@material-ui/core/Grid";
 
 const Container = styled.div`
   width: 100vw;
-  height: 100%;
+  max-height: 100vh;
   margin-top: 3vh;
-  background-color: #f0e7e2;
-`;
-const H3 = styled.h3`
-  height: "160px";
-  color: "#fff";
-  background: "#364d79";
-`;
-const Cards = styled.div`
-  width: 80vw;
-  margin: 15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 `;
 
+const Cards = styled.div`
+  width: 100vw;
+  display:flex;
+  margin: 20px;
+`;
+export const Title = styled.div`
+
+  justify-content: center;
+  text-align: center;
+  padding:32px;
+  h1{
+    font-size: 32px;
+  }
+`
 
 function Projects() {
   return (
-    <Container>
-      <H3>Desenvolvedora</H3>
-        <Cards>
-          <Developer />
-        </Cards>
-      Separar em duas sessões:
-      <br /> programação(projetos que já desenvolvi tipo o jogo e os que
-      desenvolverei hahah)
-      <br />
-      Criadora de conteúdo: ter uma parte para os conteudos recentes do youtube
-      e os mais visualizados
-      <br />
-      colocar os trabalhos que fiz
-    </Container>
+    <Grid container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="flex-start">
+
+      <Title><h1>Desenvolvedora</h1></Title>
+      <Cards>
+        <Developer />
+
+      </Cards>
+
+      <Title><h1>Criadora de conteúdo</h1></Title>
+    </Grid>
+
   );
 }
 

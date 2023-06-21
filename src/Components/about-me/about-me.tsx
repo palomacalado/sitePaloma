@@ -1,4 +1,4 @@
-import about from '../../assets/images/sobremim .png';
+import about from '../../Assets/images/sobremim .png';
 import styled from 'styled-components';
 
 const Image = styled.img`

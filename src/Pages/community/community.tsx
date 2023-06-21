@@ -1,47 +1,48 @@
 import { Button } from '@material-ui/core';
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
-import DeveloperForm from '../new-project/developer-form';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const CommunityStyle = styled.div`
   min-height: 100vh;
+  max-height: 100vh;
   max-width: 100vw;
-  background-image: radial-gradient(circle, #f0e7e2, #98737b);
+  background-color: #f77177;
   display: flex;
   justify-content: right;
   flex-direction: row;
   align-items: center;
-`;
+  padding: 8px;
+`
 
 function Community() {
-  const { logout }: any = useContext(AuthContext);
-  const { user }: any = useContext(AuthContext);
+  const { logout }: any = useContext(AuthContext)
+  const { user }: any = useContext(AuthContext)
 
   const handleLogout = () => {
-    logout();
-  };
+    logout()
+  }
 
   return (
     <CommunityStyle>
-      {user.email === 'palomacalado@yahoo.com.br' && (
-        <Link to='/novo-projeto-desenvolvedora'>
-          <Button variant='contained' size='large' color='secondary'>
+      {user?.email === 'palomacalado@yahoo.com.br' && (
+        <Link to="/novo-projeto-desenvolvedora">
+          <Button variant="contained" size="small" color="secondary">
             Adicionar projeto desenvolvedora
           </Button>
         </Link>
       )}
       <Button
-        variant='contained'
-        size='large'
-        color='secondary'
+        variant="contained"
+        size="small"
+        color="secondary"
         onClick={handleLogout}
       >
         Sair
       </Button>
     </CommunityStyle>
-  );
+  )
 }
 
 export default Community;

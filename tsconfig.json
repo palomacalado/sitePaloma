@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/App/reportWebVitals.ts", "src/App/setupTests.ts"  ]
+, "src/app/reportWebVitals.ts", "src/app/setupTests.ts"  ]
 }

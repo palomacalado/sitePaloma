@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext, AuthProvider } from "./contexts/auth";
-
-import PageNotFound from "./components/page-not-found/page-not-found";
-import Home from "./pages/home/home";
-import Login from "./pages/login/login";
-import Projects from "./pages/projects/projects";
-import Community from "./pages/community/community";
 import { useContext } from "react";
-import CommunityRegister from "./pages/community/community-register";
-import DeveloperForm from "./pages/new-project/developer-form";
+import Home from "./Pages/Home/Home";
+import Projects from "./Pages/Projects/Projects";
+import DeveloperForm from "./Pages/new-project/developer-form";
+import Login from "./Pages/login/login";
+import Community from "./Pages/community/community";
+import PageNotFound from "./Components/page-not-found/page-not-found";
+import FormCadastro from "./Components/form-cadastro/form-cadastro";
+
 
 function Ways() {
   const Private = ({children}:any) =>{
@@ -28,7 +28,7 @@ function Ways() {
           <Route path="/projetos" element={<Projects />} />
           <Route path="/novo-projeto-desenvolvedora" element={<DeveloperForm />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/cadastro-comunidade" element={<CommunityRegister />} />
+          <Route path="/cadastro" element={<FormCadastro />} />
           <Route path="/comunidade" element={<Private><Community /></Private>} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

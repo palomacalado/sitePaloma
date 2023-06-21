@@ -1,22 +1,25 @@
-import styles from "./welcome.module.css"
-import foto from "../../assets/images/imagemprincipal.png";
-
+import foto from "../../Assets/images/Websites.png";
+import { Title, Image } from './styles';
+import Grid from "@material-ui/core/Grid";
 function Welcome() {
   return (
-    <div className={styles.welcome}>
-      <div className={styles.textoPrincipal}>
-        <h1> Olá, eu sou Paloma Calado!</h1>
+    <Grid container
+      direction="row"
+      alignItems="center"
+      justifyContent="center"
+      spacing={3}>
+
+      <Image src={foto} alt="foto de Paloma Calado" />
+      <Title>
+
+        <h1> Paloma Calado</h1>
         <p>
-          Praparado para conhecer meu trabalho?! <br />
-          Você irá se surpreender!
+          Desenvolvedora Web e Criadora de conteúdo
         </p>
-        <button>Veja aqui</button>
-      </div>
-      {/*  */}
-      <div className={styles.imagemPrincipal}>
-        <img src={foto} alt="foto de Paloma Calado" />
-      </div>
-    </div>
+      </Title>
+
+
+    </Grid>
   );
 }
 

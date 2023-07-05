@@ -1,70 +1,48 @@
+import { Grid } from '@material-ui/core';
 import about from '../../Assets/images/sobremim .png';
 import styled from 'styled-components';
 
-const Image = styled.img`
-  width: 600px;
+export const Image = styled.img`
+  height:450px;
 `;
 
-const AboutMeStyle = styled.nav`
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-`;
 const Description = styled.div`
   padding: 20px;
-`;
-const H3 = styled.h3`
-  font-family: 'Dancing Script', cursive;
-  font-size: 30px;
-`;
-
-const H4 = styled.h3`
-  font-family: 'Dancing Script', cursive;
-  font-size: 30px;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
 `;
 
-const Hiperlink = styled.a`
-  color: #98737b;
-`;
 function AboutMe() {
+  const year = new Date().getFullYear();
   return (
-    <AboutMeStyle>
-      <div>
+    <Grid container
+      direction="row"
+      alignItems="center"
+      justifyContent="center"
+      spacing={3}
+      >
+
         <Image src={about} alt='colagem de fotos de Paloma Calado' />
-      </div>
       <Description>
-        <H3>A vida é curta demais para fazer uma coisa só!</H3>
+        <h1>Conheça a pessoa por trás do trabalho!</h1>
+        <br /><br />
         <p>
-          {' '}
-          Sou Paloma Calado, 27 anos, moradora do Compelexo da Maré, <br />
-          conjunto de Favelas do Rio de Janeiro. Se você chegou até aqui é<br />
-          porque está interessada em me conhecer meu trabalho, mas vamos por{' '}
-          <br /> partes!
+          Olá! Sou Paloma Calado, uma desenvolvedora e criadora de conteúdo com {year-1995} anos de idade. Nasci e moro no Complexo da Maré, um conjunto de favelas no Rio de Janeiro. Se você está aqui, é porque está interessado em conhecer mais sobre o meu trabalho. Mas vamos com calma, vou te contar um pouco sobre mim!
         </p>
+        <br />
         <p>
-          Por muito tempo me senti culpada por não me interessar por um assunto{' '}
-          <br />
-          somente então, recentemente descobri que sou nada mais, nada menos{' '}
-          <br />
-          que <b>M U L T I P O T E N C I A L</b>. A partir dessa descoberta
-          abracei minha
-          <br />
-          diversidade e aceitei que a menina programadora também ama costurar e
-          crochetar!
-          <H4>É sobre isso, e tá tudo bem!</H4>
+          Por muito tempo, senti-me culpada por não ter interesse em apenas uma área específica. No entanto, recentemente descobri que sou nada mais, nada menos do que uma <b>MULTIPOTENCIAL</b>. Aceitar minha diversidade foi libertador! Além de programar, adoro costurar e fazer crochê. Afinal, a vida é curta demais para se restringir a uma única paixão, não é mesmo?
         </p>
-        Por aqui você encontrará meu trabalho como desenvolvedora e Criadora de
-        conteúdo! <br />
-        Para conhecer cada um com mais detalhes você pode clicar{' '}
-        <Hiperlink href='/projetos'>
-          {' '}
-          <b>aqui</b>{' '}
-        </Hiperlink>{' '}
-        ou selecionar a aba Projetos
-        <p></p>
+          <br />
+        <p>
+        Aqui no meu site, você encontrará meu trabalho como desenvolvedora e criadora de conteúdo. Para conhecê-los em detalhes, você pode clicar <a href='/projetos'>aqui</a> ou navegar até a aba "Projetos".
+
+        </p>
       </Description>
-    </AboutMeStyle>
+    </Grid>
   );
 }
 

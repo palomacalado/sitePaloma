@@ -27,11 +27,18 @@ function Community() {
   return (
     <CommunityStyle>
       {user?.email === 'palomacalado@yahoo.com.br' && (
+        <>
         <Link to="/novo-projeto-desenvolvedora">
           <Button variant="contained" size="small" color="secondary">
             Adicionar projeto desenvolvedora
           </Button>
         </Link>
+        <Link to="/novo-projeto-criadora">
+        <Button variant="contained" size="small" color="secondary">
+          Adicionar projeto Criadora de conteúdo
+        </Button>
+      </Link>
+        </>
       )}
       <Button
         variant="contained"

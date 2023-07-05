@@ -22,4 +22,13 @@ export default createGlobalStyle`
   h1 {
     font-family: 'Dita Sweet', sans-serif;
 }
+h2 {
+    font-family: 'Dita Sweet', sans-serif;
+}
+h3 {
+    font-family: 'Dita Sweet', sans-serif;
+}
+h4 {
+    font-family: 'Dita Sweet', sans-serif;
+}
 `

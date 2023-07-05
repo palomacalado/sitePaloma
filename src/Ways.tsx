@@ -8,6 +8,7 @@ import Login from "./Pages/login/login";
 import Community from "./Pages/community/community";
 import PageNotFound from "./Components/page-not-found/page-not-found";
 import FormCadastro from "./Components/form-cadastro/form-cadastro";
+import ContentForm from "./Pages/new-project/content-form";
 
 
 function Ways() {
@@ -27,6 +28,7 @@ function Ways() {
           <Route path="/" element={<Home />} />
           <Route path="/projetos" element={<Projects />} />
           <Route path="/novo-projeto-desenvolvedora" element={<DeveloperForm />} />
+          <Route path="/novo-projeto-criadora" element={<ContentForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<FormCadastro />} />
           <Route path="/comunidade" element={<Private><Community /></Private>} />

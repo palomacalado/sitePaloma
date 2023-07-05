@@ -11,7 +11,7 @@ function Home() {
       </div>
       <div id='sobre mim'>
 
-      {/* <AboutMe /> */}
+      <AboutMe />
       </div>
 
     </div>

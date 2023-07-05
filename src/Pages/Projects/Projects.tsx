@@ -1,7 +1,8 @@
 import React from "react";
-import Developer from "../../Components/Developer/developer";
+import Developer from "../../Components/Projects/developer";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
+import ContentCreator from "../../Components/Projects/content-creator";
 
 const Container = styled.div`
   width: 100vw;
@@ -38,6 +39,9 @@ function Projects() {
       </Cards>
 
       <Title><h1>Criadora de conteúdo</h1></Title>
+      <Cards>
+        <ContentCreator />
+      </Cards>
     </Grid>
 
   );

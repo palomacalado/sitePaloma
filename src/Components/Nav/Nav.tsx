@@ -12,7 +12,7 @@ function Nav() {
       </a>
 
       <div>
-        <Hiperlink href='#sobre mim'>Sobre mim</Hiperlink>
+        <Hiperlink href='/#sobre mim'>Sobre mim</Hiperlink>
         <Hiperlink href='/projetos'>Projetos</Hiperlink>
         <Hiperlink href={token ? '/comunidade' : '/login'}>
           Acesse a comunidade

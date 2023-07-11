@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AuthContext, AuthProvider } from "./contexts/auth";
+import { AuthContext } from "./contexts/auth";
 import { useContext } from "react";
 import Home from "./Pages/Home/Home";
 import Projects from "./Pages/Projects/Projects";
@@ -22,7 +22,7 @@ function Ways() {
     return children;
   }
   return (
-    <div>
+    <>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projetos" element={<Projects />} />
@@ -33,7 +33,7 @@ function Ways() {
           <Route path="/comunidade" element={<Private><Community /></Private>} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-    </div>
+    </>
   );
 }
 

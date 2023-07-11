@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
-import { Button, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@material-ui/core'
+import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel} from '@material-ui/core'
 import { postUser } from '../../services/api'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import clsx from 'clsx'
-import { log } from 'console'
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,37 +21,45 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function FormCadastro() {
   const classes = useStyles()
-  const [project, setProject] = useState<User>({
+  const [user, setUser] = useState<User>({
     name:'',
     email: '',
     password:'',
-    bio: '',
-    showPassword: false
+    confirmPassword:'',
+    bio:'',
+    photo:'',
+    showPassword: false,
+    showConfirmPassword: false,
   })
 
   const handleChange =
     (prop: keyof User) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(event.target.value)
-      setProject({ ...project, [prop]: event.target.value })
+      const fileReader = new FileReader()
+      if (prop === 'photo' && event) {
+        if (!event.target.files) return;
+        fileReader.readAsDataURL(event.target.files[0])
+        fileReader.onload = function () {
+          setUser({ ...user, photo: JSON.stringify(fileReader.result) })
+        }
+      }
+      setUser({ ...user, [prop]: event.target.value })
     }
 
-  const onSubmit = async () => {
-    // event.preventDefault();
-    console.log(project);
+  const onSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    console.log(user, "enviou");
     
-    await postUser(project).then(()=>alert( 'Usuário cadastrado com sucesso!'));
+    await postUser(user)
 
   }
  
   const handleClickShowPassword = () => {
-    setProject({ ...project, showPassword: !project.showPassword })
+    setUser({ ...user, showPassword: !user.showPassword })
   }
-
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault()
+  const handleClickShowConfirmPassword = () => {
+    setUser({ ...user, showConfirmPassword: !user.showConfirmPassword })
   }
+  
   return (
     <form
       className={classes.root}
@@ -78,29 +85,65 @@ function FormCadastro() {
         required
         onChange={handleChange('bio')}
       />
-     
+     <input
+        id="image"
+        type="file"
+        accept="image/*"
+        required
+        onChange={handleChange('photo')}
+      />
+      <FormControl
+          variant="outlined"
+        >
+
           <InputLabel htmlFor="outlined-adornment-password">
-            Password
+            Senha
           </InputLabel>
-          <OutlinedInput
+          <Input
             id="outlined-adornment-password"
-            type={project.showPassword ? 'text' : 'password'}
-            value={project.password}
+            type={user.showPassword ? 'text' : 'password'}
+            value={user.password}
             onChange={handleChange('password')}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
                   edge="end"
-                >
-                  {project.showPassword ? <Visibility /> : <VisibilityOff />}
+                  >
+                  {user.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>
             }
-            labelWidth={70}
-          />
+            />
+            </FormControl>
+
+            <FormControl
+          variant="outlined"
+        >
+
+          <InputLabel htmlFor="outlined-adornment-password">
+            Senha
+          </InputLabel>
+          <Input
+            id="outlined-adornment-password"
+            type={user.showConfirmPassword ? 'text' : 'confirmPassword'}
+            value={user.confirmPassword}
+            onChange={handleChange('confirmPassword')}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowConfirmPassword}
+                  edge="end"
+                >
+                  {user.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+            />
+        
+            </FormControl>
      
       <Button variant="contained" size="small" color="secondary" type="submit">
         concluir cadastro

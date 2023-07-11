@@ -28,23 +28,20 @@ function FormContent() {
 
   const handleChange =
     (prop: keyof Card) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(event.target.value)
       const fileReader = new FileReader()
-      if (!event.target.files) return;
       if (prop === 'image' && event) {
+        if (!event.target.files) return;
         fileReader.readAsDataURL(event.target.files[0])
         fileReader.onload = function () {
           setContentProject({ ...contentProject, image: JSON.stringify(fileReader.result) })
         }
       }
       setContentProject({ ...contentProject, [prop]: event.target.value })
-      console.log(contentProject)
     }
 
   const onSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log(contentProject);
-    // await postContentProject(project);
+    await postContentProject(contentProject);
 
   }
   return (

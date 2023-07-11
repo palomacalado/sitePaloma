@@ -23,7 +23,6 @@ function Ways() {
   }
   return (
     <div>
-      <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projetos" element={<Projects />} />
@@ -34,7 +33,6 @@ function Ways() {
           <Route path="/comunidade" element={<Private><Community /></Private>} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </AuthProvider>
     </div>
   );
 }

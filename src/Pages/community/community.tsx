@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import styled from 'styled-components';
@@ -17,15 +17,18 @@ const CommunityStyle = styled.div`
 `
 
 function Community() {
-  const { logout }: any = useContext(AuthContext)
   const { user }: any = useContext(AuthContext)
-
-  const handleLogout = () => {
-    logout()
-  }
+ 
 
   return (
-    <CommunityStyle>
+    <>
+<Grid
+  container
+  direction="column"
+  justifyContent="flex-start"
+  alignItems="flex-start"
+>
+
       {user?.email === 'palomacalado@yahoo.com.br' && (
         <>
         <Link to="/novo-projeto-desenvolvedora">
@@ -33,6 +36,7 @@ function Community() {
             Adicionar projeto desenvolvedora
           </Button>
         </Link>
+        
         <Link to="/novo-projeto-criadora">
         <Button variant="contained" size="small" color="secondary">
           Adicionar projeto Criadora de conteúdo
@@ -40,15 +44,8 @@ function Community() {
       </Link>
         </>
       )}
-      <Button
-        variant="contained"
-        size="small"
-        color="secondary"
-        onClick={handleLogout}
-      >
-        Sair
-      </Button>
-    </CommunityStyle>
+         </Grid>
+        </>
   )
 }
 

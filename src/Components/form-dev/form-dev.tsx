@@ -29,8 +29,8 @@ function FormDev() {
   const handleChange =
     (prop: keyof Card) => (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader()
-      if (!event.target.files) return;
       if (prop === 'image'&& event) {
+        if (!event.target.files) return;
         fileReader.readAsDataURL(event.target.files[0])
         fileReader.onload = function () {
           setProject({ ...project, image: JSON.stringify(fileReader.result) })

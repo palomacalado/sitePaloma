@@ -55,7 +55,7 @@ interface State {
 function Login() {
   const classes = useStyles()
   const { login }: any = useContext(AuthContext)
-  const [users, setUsers] = useState([])
+  const [, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

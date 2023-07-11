@@ -10,7 +10,13 @@ export const createSession = async (email, password) => {
 }
 
 export const getUsers = async () => {
-  return api.get('/users')
+  const response = api.get('/users')
+return response
+ 
+}
+export const getOnlyUser = async (id) => {
+  const response = api.get(`/users/${id}`)
+  return response
 }
 
 export const postDeveloperProject = async (body: Card) => {
@@ -24,9 +30,8 @@ export const postDeveloperProject = async (body: Card) => {
       description: JSON.stringify(body.description),
       image: body.image
     }
-    console.log(manipulatedBody)
     return api.post('/developer', manipulatedBody)
-
+    
   } catch (err) {
     console.log(err)
   }
@@ -36,14 +41,14 @@ export const postContentProject = async (body: Card) => {
   try {
     const token = localStorage.getItem('token')
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-
+    
     const manipulatedBody = {
       title: JSON.stringify(body.title),
       preview: JSON.stringify(body.preview),
       description: JSON.stringify(body.description),
       image: body.image
     }
-
+    
     api.post('/content-creator', manipulatedBody)
     return <Alert severity="success"> Projeto criado com sucesso! </Alert >
   } catch (err) {
@@ -57,13 +62,17 @@ export const postUser = async (body: User) => {
   try {
     const token = localStorage.getItem('token')
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-
+    
     const manipulatedBody = {
-      email: JSON.stringify(body.email),
-      password: JSON.stringify(body.password),
-
+      name:body.name,
+      email:body.email,
+      password: body.password,
+      bio:body.bio,
+      photo:body.photo,
+      
     }
-
+    
+    console.log(manipulatedBody, "body manipulado")
     return api.post('/users', manipulatedBody)
   } catch (err) {
     console.log(err)

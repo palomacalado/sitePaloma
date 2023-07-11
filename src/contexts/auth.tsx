@@ -1,19 +1,21 @@
 import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { api, createSession } from '../services/api.js';
+import { api, createSession, getOnlyUser } from '../services/api.js';
 
 export const AuthContext = createContext<AuthContextInterface | null>(null);
 
 export const AuthProvider = ({ children }: any) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null | any>(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const recoveredUser = localStorage.getItem('user');
+
     const token = localStorage.getItem('token');
     if (recoveredUser && token) {
-      setUser(JSON.parse(recoveredUser));
+      setUser(recoveredUser );
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
     setLoading(false);
@@ -23,15 +25,15 @@ export const AuthProvider = ({ children }: any) => {
     const response = await createSession(email, password);
     const loggedUser = response.data.user;
     const token = response.data.token;
+    const dataUser = await getOnlyUser(loggedUser.id);
 
-    localStorage.setItem('user', JSON.stringify(loggedUser));
+    localStorage.setItem('user', JSON.stringify(dataUser));
     localStorage.setItem('token', token);
 
+
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    setUser(dataUser.data)
 
-    console.log('login', response.data);
-
-    setUser(loggedUser);
     navigate('/comunidade');
   };
   const logout = () => {

@@ -2,9 +2,30 @@ import styled from 'styled-components';
 
 import logo from '../../Assets/images/P A L O M A.png';
 import { NavStyle, Image, Hiperlink } from './styles';
+import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/auth';
+import React from 'react';
+import defaultImage from '../../Assets/images/imageDefault.png';
+
 
 function Nav() {
   const token = localStorage.getItem('token');
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const { logout }: any = useContext(AuthContext)
+
+ 
+  const handleLogout = () => {
+    logout()
+  }
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <NavStyle>
       <a href='/'>
@@ -24,6 +45,37 @@ function Nav() {
           Currículo vitae
         </Hiperlink>
       </div>
+      {token && (
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+              >
+                <Avatar alt="foto do usuário" src={defaultImage} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleLogout}>Sair</MenuItem>
+              </Menu>
+            </div>
+          )}
     </NavStyle>
   );
 }

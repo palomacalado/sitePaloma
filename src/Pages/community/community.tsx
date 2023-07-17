@@ -14,39 +14,19 @@ const CommunityStyle = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 8px;
-`
+`;
 
 function Community() {
-  const { user }: any = useContext(AuthContext)
- 
-
   return (
     <>
-<Grid
-  container
-  direction="column"
-  justifyContent="flex-start"
-  alignItems="flex-start"
->
-
-      {user?.email === 'palomacalado@yahoo.com.br' && (
-        <>
-        <Link to="/novo-projeto-desenvolvedora">
-          <Button variant="contained" size="small" color="secondary">
-            Adicionar projeto desenvolvedora
-          </Button>
-        </Link>
-        
-        <Link to="/novo-projeto-criadora">
-        <Button variant="contained" size="small" color="secondary">
-          Adicionar projeto Criadora de conteúdo
-        </Button>
-      </Link>
-        </>
-      )}
-         </Grid>
-        </>
-  )
+      <Grid
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+      ></Grid>
+    </>
+  );
 }
 
 export default Community;

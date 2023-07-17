@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import { Button, Input } from '@material-ui/core'
-import { postContentProject} from '../../services/api'
-
+import React, { useState } from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import { Button, Input } from '@material-ui/core';
+import { postContentProject } from '../../services/post-content-project';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -11,39 +10,42 @@ const useStyles = makeStyles((theme: Theme) =>
       '& > *': {
         margin: theme.spacing(1),
         width: '30vw',
-        display: 'flex'
-      }
-    }
-  })
-)
+        display: 'flex',
+      },
+    },
+  }),
+);
 
 function FormContent() {
-  const classes = useStyles()
+  const classes = useStyles();
   const [contentProject, setContentProject] = useState<Card>({
     title: '',
     preview: '',
     image: '',
-    description: ''
-  })
+    description: '',
+    type: 'creator',
+  });
 
   const handleChange =
     (prop: keyof Card) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      const fileReader = new FileReader()
+      const fileReader = new FileReader();
       if (prop === 'image' && event) {
         if (!event.target.files) return;
-        fileReader.readAsDataURL(event.target.files[0])
+        fileReader.readAsDataURL(event.target.files[0]);
         fileReader.onload = function () {
-          setContentProject({ ...contentProject, image: JSON.stringify(fileReader.result) })
-        }
+          setContentProject({
+            ...contentProject,
+            image: JSON.stringify(fileReader.result),
+          });
+        };
       }
-      setContentProject({ ...contentProject, [prop]: event.target.value })
-    }
+      setContentProject({ ...contentProject, [prop]: event.target.value });
+    };
 
   const onSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     await postContentProject(contentProject);
-
-  }
+  };
   return (
     <form
       className={classes.root}
@@ -53,7 +55,7 @@ function FormContent() {
     >
       <TextField
         id="Title"
-        label="Título do projeto"
+        label="Título do projeto de criadora de conteúdo"
         required
         onChange={handleChange('title')}
       />
@@ -81,6 +83,6 @@ function FormContent() {
         Adicionar Projeto
       </Button>
     </form>
-  )
+  );
 }
-export default FormContent
+export default FormContent;

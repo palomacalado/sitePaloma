@@ -1,37 +1,30 @@
-import { Skeleton } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import ProjectCard from "../project-card/project-card";
+import { Skeleton } from '@mui/material';
+import { useContext } from 'react';
+import ProjectCard from '../project-card/project-card';
+import { ProjectsContext } from '../../contexts/projects';
 
 function Developer() {
-  const [developerProjects, setDeveloperProjects] = useState<Card[]>([])
+  const { developerProjects }: any = useContext(ProjectsContext);
 
-
-  useEffect(() => {
-    axios
-      .get('http://www.localhost:5000/developer')
-      .then(projects => setDeveloperProjects(projects.data))
-
-  }, [])
-
-  return (<>
-    {!developerProjects && (
-      <Skeleton animation="wave" variant="circular" width={40} height={40} />
-    )}
-    {developerProjects &&
-      developerProjects.map((project: Card) => {
-        return (
-          <ProjectCard
-            title={project.title}
-            image={project.image}
-            description={project.description}
-            preview={project.preview}
-          />
-        )
-      })}
-
-
-  </>
-  )
+  return (
+    <>
+      {developerProjects.length === 0 && (
+        <Skeleton animation="wave" variant="circular" width={40} height={40} />
+      )}
+      {developerProjects &&
+        developerProjects.map((project: Card) => {
+          return (
+            <ProjectCard
+              title={project.title}
+              image={project.image}
+              description={project.description}
+              preview={project.preview}
+              _id={project._id}
+              type="developer"
+            />
+          );
+        })}
+    </>
+  );
 }
 export default Developer;

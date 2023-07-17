@@ -3,4 +3,6 @@ interface Card{
     preview:string;
     image:string;
     description: string;
+    _id?:string;
+    type?:string;
 }

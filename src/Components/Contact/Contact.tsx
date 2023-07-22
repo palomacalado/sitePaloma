@@ -3,8 +3,8 @@ import {
   GithubOutlined,
   InstagramOutlined,
   YoutubeOutlined,
-} from "@ant-design/icons";
-import styled from "styled-components";
+} from '@ant-design/icons';
+import styled from 'styled-components';
 
 const ContactStyle = styled.div`
 height: 25px;
@@ -16,10 +16,10 @@ justify-content: space-evenly;
 `;
 
 const Hiperlink = styled.a`
-text-decoration: none;
-cursor: pointer;
-color: #F0E7E2;
-margin: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #f0e7e2;
+  margin: 5px;
 `;
 
 function Contact() {

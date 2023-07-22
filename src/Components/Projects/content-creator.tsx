@@ -14,7 +14,7 @@ function ContentCreator() {
 
   return (
     <>
-      {!contentProjects && (
+      {contentProjects.length === 0 && (
         <Skeleton animation="wave" variant="circular" width={40} height={40} />
       )}
       {contentProjects &&

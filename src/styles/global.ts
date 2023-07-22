@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -8,15 +8,15 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    background: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
     font-family: 'CMU Serif', sans-serif;
                                                 
     
   }
 
   a {
-    color: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     text-decoration: none;
   }
   h1 {
@@ -31,4 +31,4 @@ h3 {
 h4 {
     font-family: 'Dita Sweet', sans-serif;
 }
-`
+`;

@@ -4,6 +4,4 @@ interface ProjectsContextInterface {
   developerProjects: Card[]
   setDeveloperProjects: Dispatch<SetStateAction<Card[]>>
 };
-
-
-  
+ 

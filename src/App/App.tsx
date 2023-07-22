@@ -6,8 +6,11 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 import { AuthProvider } from '../contexts/auth';
+import ConfirmDelete from '../Components/modal/confirm-delete';
+import { useState } from 'react';
 
 function App() {
+  const [modalDelete, setModalDelete] = useState(false);
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -16,6 +19,10 @@ function App() {
           <Contact />
           <Nav />
           <Ways />
+          <ConfirmDelete
+            modalDelete={modalDelete}
+            setModalDelete={setModalDelete}
+          />
         </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>

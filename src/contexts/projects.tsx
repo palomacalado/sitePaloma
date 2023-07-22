@@ -17,7 +17,10 @@ export const ProjectsProvider = ({ children }: any) => {
 
   return (
     <ProjectsContext.Provider
-      value={{ developerProjects, setDeveloperProjects }}
+      value={{
+        developerProjects,
+        setDeveloperProjects,
+      }}
     >
       {children}
     </ProjectsContext.Provider>

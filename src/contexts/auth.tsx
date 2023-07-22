@@ -29,7 +29,10 @@ export const AuthProvider = ({ children }: any) => {
     localStorage.setItem('user', JSON.stringify(dataUser));
     localStorage.setItem('name', JSON.stringify(dataUser.data.name));
     localStorage.setItem('email', JSON.stringify(dataUser.data.email));
-    localStorage.setItem('photo', JSON.stringify(dataUser.data.photo));
+    localStorage.setItem(
+      'photo',
+      JSON.stringify(dataUser.data.photo.replaceAll(`"`, '')),
+    );
     localStorage.setItem('token', token);
 
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;

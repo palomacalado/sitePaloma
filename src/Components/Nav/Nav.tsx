@@ -72,7 +72,7 @@ function Nav() {
                 <Avatar
                   sx={{ width: 32, height: 32 }}
                   alt="foto do usuário"
-                  src={userPhoto ? userPhoto : defaultImage}
+                  src={userPhoto ? userPhoto.replaceAll(`"`, '') : defaultImage}
                 />
               </IconButton>
             </Tooltip>
